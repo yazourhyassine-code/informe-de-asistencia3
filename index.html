@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Asistencia marzo–junio 2026</title>
+<style>
+/* Layout: one column; two session blocks (marzo, junio), each = KPIs, table by program, four charts, three takeaways */
+:root{--bg:#f4f5f7;--card:#ffffff;--fg:#1d2433;--muted:#5a6477;--faint:#8a93a3;--soft:#f7f8fa;--line:rgba(29,36,51,.10);--grid:rgba(29,36,51,.08);--red:#c0392b;--green:#2a9d5b;--grey:#b7bdc8;--mar:#2a6f97;--jun:#e76f51}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171d;--card:#1d2129;--fg:#e8ebf1;--muted:#a3abba;--faint:#7c8596;--soft:#252a34;--line:rgba(232,235,241,.12);--grid:rgba(232,235,241,.09);--red:#ef6f5f;--green:#4cc47f;--grey:#5b6372;--mar:#5aa6d6;--jun:#f08a6e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14171d;--card:#1d2129;--fg:#e8ebf1;--muted:#a3abba;--faint:#7c8596;--soft:#252a34;--line:rgba(232,235,241,.12);--grid:rgba(232,235,241,.09);--red:#ef6f5f;--green:#4cc47f;--grey:#5b6372;--mar:#5aa6d6;--jun:#f08a6e;color-scheme:dark}
+body{font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:var(--bg);color:var(--fg)}
+.wrap{max-width:1040px;margin:0 auto;padding-block:32px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px}
+h1{font-size:30px;margin:0 0 10px;line-height:1.2;text-wrap:balance}
+.lead{font-size:16px;color:var(--muted);margin:0 0 18px;max-width:70ch;line-height:1.5}
+.jump{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.jump a{font-size:14px;font-weight:600;text-decoration:none;padding:8px 14px;border-radius:999px;background:var(--card);color:var(--fg);box-shadow:0 1px 3px rgba(0,0,0,.08);border-left:5px solid}
+.jump a:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.session{margin-bottom:40px}
+.shead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:3px solid;padding-bottom:8px;margin-bottom:16px}
+.shead h2{font-size:26px;margin:0}
+.badge{font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--soft);color:var(--muted);letter-spacing:.02em}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:16px}
+.kpi{background:var(--card);border-radius:12px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.08);min-width:0}
+.kpi b{display:block;font-size:26px;line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi span{display:block;font-size:13.5px;color:var(--muted);margin-top:5px;line-height:1.35}
+.kpi.alert b{color:var(--red)}
+.card{background:var(--card);border-radius:12px;padding:18px 20px;box-shadow:0 1px 3px rgba(0,0,0,.08);margin-bottom:16px;min-width:0}
+h3{font-size:17px;margin:0 0 4px;text-wrap:balance}
+.note{font-size:14px;color:var(--muted);margin:0 0 12px;line-height:1.45}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{font-size:12px;color:var(--muted);font-weight:600;vertical-align:bottom;white-space:normal;min-width:70px}
+tr.tot td{font-weight:700;border-top:2px solid var(--line);border-bottom:none}
+td.hot{color:var(--red);font-weight:700}
+td.ok{color:var(--green);font-weight:700}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:760px){.grid2{grid-template-columns:1fr}}
+.grid2 .card{margin-bottom:0}
+.grid2{margin-bottom:16px}
+.box{position:relative;height:280px}
+.take{display:grid;gap:8px;margin:0;padding-left:20px;font-size:15px;line-height:1.5;max-width:80ch}
+.foot{font-size:12px;color:var(--faint);line-height:1.6}
+@media (max-width:600px){h1{font-size:24px}.shead h2{font-size:22px}.kpi b{font-size:22px}.box{height:250px}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<p class="eyebrow">Deuda y asistencia por programa</p>
+<h1>Convocatorias de marzo y junio 2026</h1>
+<p class="lead">Cada convocatoria se analiza por separado. Marzo ya terminó y tiene notas (apto / no apto). Junio sigue en curso, así que se compara a los alumnos con deuda y sin deuda.</p>
+<nav class="jump"><a href="#marzo" style="border-left-color:var(--mar)">Marzo 2026</a><a href="#junio" style="border-left-color:var(--jun)">Junio 2026</a></nav>
+
+<!-- ============ MARZO ============ -->
+<section class="session" id="marzo">
+<div class="shead" style="border-color:var(--mar)"><h2>Marzo 2026</h2><span class="badge">Curso terminado</span></div>
+
+<div class="kpis">
+ <div class="kpi"><b>216</b><span>alumnos en total</span></div>
+ <div class="kpi"><b>100 · 116</b><span>aptos · no aptos</span></div>
+ <div class="kpi alert"><b>97</b><span>no aptos con deuda (84 % de los no aptos)</span></div>
+ <div class="kpi alert"><b>89.664 €</b><span>deuda de los no aptos con deuda</span></div>
+ <div class="kpi"><b>74 % · 37 %</b><span>asistencia de aptos · de no aptos con deuda</span></div>
+</div>
+
+<div class="card"><h3>Por programa</h3>
+<p class="note">Asistencia = % de clases a las que asistió el alumno, de media.</p>
+<div class="tbl"><table>
+<thead><tr><th>Programa</th><th>Alumnos</th><th>Aptos</th><th>No aptos</th><th>No aptos con deuda</th><th>Deuda no aptos con deuda</th><th>Deuda media</th><th>Asistencia aptos</th><th>Asistencia no aptos con deuda</th></tr></thead>
+<tbody id="tM"></tbody></table></div></div>
+
+<div class="grid2">
+ <div class="card"><h3>Resultado de los alumnos</h3><p class="note">Cuántos aprobaron y cuántos no aprobaron y deben dinero.</p><div class="box"><canvas id="m1"></canvas></div></div>
+ <div class="card"><h3>Asistencia: aptos frente a no aptos con deuda</h3><p class="note">En todos los programas, los no aptos con deuda asisten mucho menos.</p><div class="box"><canvas id="m2"></canvas></div></div>
+ <div class="card"><h3>Deuda de los no aptos, por programa</h3><p class="note">Intelligence économique concentra la mitad.</p><div class="box"><canvas id="m3"></canvas></div></div>
+ <div class="card"><h3>Asistencia clase a clase</h3><p class="note">Los no aptos con deuda se descuelgan desde la Clase 8.</p><div class="box"><canvas id="m4"></canvas></div></div>
+</div>
+
+<div class="card"><h3>Lo que hay que retener</h3><ul class="take">
+ <li>Más de la mitad de los alumnos no aprobó (116 de 216), y casi todos ellos tienen deuda (97).</li>
+ <li>Los no aptos con deuda van a la mitad de clases que los aptos: 37 % frente a 74 %.</li>
+ <li>Intelligence économique es el foco: 41 no aptos con deuda, 46.030 € (51 % del total) y la deuda media más alta (1.123 €).</li>
+</ul></div>
+</section>
+
+<!-- ============ JUNIO ============ -->
+<section class="session" id="junio">
+<div class="shead" style="border-color:var(--jun)"><h2>Junio 2026</h2><span class="badge">En curso · todavía sin notas</span></div>
+
+<div class="kpis">
+ <div class="kpi"><b>216</b><span>alumnos en total</span></div>
+ <div class="kpi alert"><b>166</b><span>alumnos con deuda (77 %)</span></div>
+ <div class="kpi"><b>50</b><span>alumnos sin deuda</span></div>
+ <div class="kpi alert"><b>134.334 €</b><span>deuda total</span></div>
+ <div class="kpi"><b>47 % · 59 %</b><span>asistencia con deuda · sin deuda</span></div>
+</div>
+
+<div class="card"><h3>Por programa</h3>
+<p class="note">Como aún no hay notas, se compara a los alumnos con y sin deuda.</p>
+<div class="tbl"><table>
+<thead><tr><th>Programa</th><th>Alumnos</th><th>Con deuda</th><th>Sin deuda</th><th>Deuda total</th><th>Deuda media</th><th>Asistencia con deuda</th><th>Asistencia sin deuda</th></tr></thead>
+<tbody id="tJ"></tbody></table></div></div>
+
+<div class="grid2">
+ <div class="card"><h3>Alumnos con y sin deuda</h3><p class="note">3 de cada 4 alumnos tienen deuda.</p><div class="box"><canvas id="j1"></canvas></div></div>
+ <div class="card"><h3>Asistencia: con deuda frente a sin deuda</h3><p class="note">Los que deben asisten menos en casi todos los programas.</p><div class="box"><canvas id="j2"></canvas></div></div>
+ <div class="card"><h3>Deuda total por programa</h3><p class="note">Project Management e Intelligence économique suman casi dos tercios.</p><div class="box"><canvas id="j3"></canvas></div></div>
+ <div class="card"><h3>Asistencia clase a clase</h3><p class="note">La asistencia de los alumnos con deuda baja poco a poco hasta el 39 %.</p><div class="box"><canvas id="j4"></canvas></div></div>
+</div>
+
+<div class="card"><h3>Lo que hay que retener</h3><ul class="take">
+ <li>166 de 216 alumnos tienen deuda, por 134.334 € en total.</li>
+ <li>Los alumnos con deuda asisten menos: 47 % frente a 59 %. La mayor diferencia está en International Business (39 % frente a 68 %), seguida de Direction et gestion des équipes (57 % frente a 75 %) y Marketing (37 % frente a 55 %).</li>
+ <li>Excepción: en Project Management los alumnos sin deuda asisten incluso menos (38 %).</li>
+ <li>Todavía hay margen: con el curso en marcha, los alumnos con deuda que siguen asistiendo pueden aprobar.</li>
+</ul></div>
+</section>
+
+<div class="foot">Datos del Google Sheet “rapport assiduité”, verificados con el PDF · Las casillas de asistencia vacías no cuentan ni como presencia ni como ausencia · Alumnos sin ningún registro de asistencia: 13 en marzo y 8 en junio (cuentan en alumnos y deuda, no en asistencia) · * Intelligence économique en junio: solo 2 de los 7 alumnos sin deuda tienen registro de asistencia · Programas con menos de 10 alumnos: cifras orientativas.</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+// [programa, alumnos, aptos, no aptos, no aptos con deuda, deuda NAD, asist. aptos, asist. NAD]
+const MAR=[['Intelligence économique',78,28,50,41,46030,74,33],['Marketing & Forces de vente',55,18,37,31,23472,81,46],['Big Data & BI',33,24,9,8,6910,69,23],['IA & Transformation digitale',27,17,10,9,6944,74,29],['Gestion financière',23,13,10,8,6308,73,38]];
+const MAR_T=['Total',216,100,116,97,89664,74,37];
+// [programa, alumnos, con deuda, sin deuda, deuda, asist. con deuda, asist. sin deuda]
+const JUN=[['Project Management',73,59,14,45519,43,38],['Intelligence économique',53,46,7,40795,53,'66*'],['Direction et gestion des équipes',38,28,10,20681,57,75],['Marketing & Forces de vente',27,20,7,16178,37,55],['International Business',25,13,12,11161,39,68]];
+const JUN_T=['Total',216,166,50,134334,47,59];
+const CM={y:[71,80,84,85,88,92,83,80,84,73,83,74,77,63,72,66,64,64,60,62,70,63,null],n:[42,53,42,61,53,55,53,49,44,32,33,28,35,35,34,29,25,29,19,20,17,15,null]};
+const CJ={d:[45,51,59,61,56,50,52,53,50,46,53,48,43,40,42,47,37,43,43,46,35,44,39],z:[56,76,58,71,73,64,64,68,59,70,32,68,50,55,61,57,61,57,45,55,39,20,36]};
+const HDR=['Present.','Bienv.'];for(let i=1;i<=21;i++)HDR.push('C'+i);
+
+const $=id=>document.getElementById(id);
+const eur=v=>String(Math.round(v)).replace(/\B(?=(\d{3})+(?!\d))/g,'.')+' €';
+const pct=v=>v+(String(v).includes('*')?'':' %');
+$('tM').innerHTML=[...MAR,MAR_T].map((r,i,a)=>`<tr${i===a.length-1?' class="tot"':''}><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td><td>${eur(r[5])}</td><td>${eur(r[5]/r[4])}</td><td class="ok">${r[6]} %</td><td class="hot">${r[7]} %</td></tr>`).join('');
+$('tJ').innerHTML=[...JUN,JUN_T].map((r,i,a)=>`<tr${i===a.length-1?' class="tot"':''}><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${eur(r[4])}</td><td>${eur(r[4]/r[2])}</td><td class="hot">${r[5]} %</td><td class="ok">${pct(r[6]).replace('66*','66 %*')}</td></tr>`).join('');
+
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const FONT='-apple-system,Segoe UI,Roboto,Arial,sans-serif';
+const SH={'Marketing & Forces de vente':['Marketing'],'Intelligence économique':['Intelligence','économique'],'IA & Transformation digitale':['IA & Transf.','digitale'],'Direction et gestion des équipes':['Direction','de equipos'],'International Business':['International','Business'],'Gestion financière':['Gestion','financière'],'Project Management':['Project','Management'],'Big Data & BI':['Big Data','& BI']};
+const short=s=>SH[s]||s;
+const labels=(ch,f)=>({id:'lb',afterDatasetsDraw(c){const {ctx}=c;c.data.datasets.forEach((d,i)=>{const m=c.getDatasetMeta(i);if(m.hidden)return;m.data.forEach((b,j)=>{const v=d.data[j];if(v==null)return;const t=f(v,d,j);if(!t)return;ctx.save();ctx.font='bold 11.5px '+FONT;ctx.fillStyle=css('--fg');
+ if(c.options.indexAxis==='y'){ctx.textAlign='left';ctx.fillText(t,b.x+6,b.y+4)}else if(d.stack){ctx.fillStyle='#fff';ctx.textAlign='center';if(Math.abs(b.base-b.y)>14)ctx.fillText(t,b.x,(b.y+b.base)/2+4)}else{ctx.textAlign='center';ctx.fillText(t,b.x,b.y-5)}ctx.restore()})})}});
+function draw(){Object.values(Chart.instances).forEach(c=>c.destroy());
+ Chart.defaults.color=css('--muted');Chart.defaults.font.family=FONT;Chart.defaults.font.size=12;
+ const g=css('--grid'),red=css('--red'),green=css('--green'),grey=css('--grey'),mar=css('--mar'),jun=css('--jun');
+ const leg={position:'bottom',labels:{usePointStyle:true,boxWidth:8}};
+ const pctY=(max=100)=>({min:0,max,grid:{color:g},ticks:{stepSize:25,callback:v=>v+' %'}});
+ const xg={grid:{display:false},ticks:{maxRotation:0,autoSkip:false,font:{size:11}}};
+ // MARZO
+ const mL=MAR.map(r=>short(r[0]));
+ new Chart($('m1'),{type:'bar',plugins:[labels(0,v=>v)],data:{labels:mL,datasets:[
+  {label:'Aptos',data:MAR.map(r=>r[2]),backgroundColor:green,stack:'s'},
+  {label:'No aptos sin deuda',data:MAR.map(r=>r[3]-r[4]),backgroundColor:grey,stack:'s'},
+  {label:'No aptos con deuda',data:MAR.map(r=>r[4]),backgroundColor:red,stack:'s',borderRadius:4}]},
+  options:{responsive:true,maintainAspectRatio:false,scales:{x:{...xg,stacked:true},y:{stacked:true,grid:{color:g},title:{display:true,text:'Alumnos'}}},plugins:{legend:leg}}});
+ new Chart($('m2'),{type:'bar',plugins:[labels(0,v=>v+' %')],data:{labels:mL,datasets:[
+  {label:'Aptos',data:MAR.map(r=>r[6]),backgroundColor:green,borderRadius:4},
+  {label:'No aptos con deuda',data:MAR.map(r=>r[7]),backgroundColor:red,borderRadius:4}]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:16}},scales:{x:xg,y:pctY()},plugins:{legend:leg}}});
+ new Chart($('m3'),{type:'bar',plugins:[labels(0,v=>eur(v))],data:{labels:mL,datasets:[{label:'Deuda',data:MAR.map(r=>r[5]),backgroundColor:mar,borderRadius:4}]},
+  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,layout:{padding:{right:70}},scales:{x:{min:0,max:50000,grid:{color:g},ticks:{stepSize:25000,maxRotation:0,callback:v=>eur(v)}},y:{grid:{display:false}}},plugins:{legend:{display:false}}}});
+ new Chart($('m4'),{type:'line',data:{labels:HDR,datasets:[
+  {label:'Aptos',data:CM.y,borderColor:green,backgroundColor:green,borderWidth:2.5,pointRadius:0,tension:.3,spanGaps:true},
+  {label:'No aptos con deuda',data:CM.n,borderColor:red,backgroundColor:red,borderWidth:2.5,pointRadius:0,tension:.3,spanGaps:true}]},
+  options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},scales:{x:{grid:{display:false},ticks:{maxRotation:0,autoSkip:true,maxTicksLimit:8,font:{size:11}}},y:pctY()},plugins:{legend:leg,tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.raw} %`}}}}});
+ // JUNIO
+ const jL=JUN.map(r=>short(r[0]));
+ new Chart($('j1'),{type:'bar',plugins:[labels(0,v=>v)],data:{labels:jL,datasets:[
+  {label:'Sin deuda',data:JUN.map(r=>r[3]),backgroundColor:green,stack:'s'},
+  {label:'Con deuda',data:JUN.map(r=>r[2]),backgroundColor:red,stack:'s',borderRadius:4}]},
+  options:{responsive:true,maintainAspectRatio:false,scales:{x:{...xg,stacked:true},y:{stacked:true,grid:{color:g},title:{display:true,text:'Alumnos'}}},plugins:{legend:leg}}});
+ new Chart($('j2'),{type:'bar',plugins:[labels(0,v=>v+' %')],data:{labels:jL,datasets:[
+  {label:'Sin deuda',data:JUN.map(r=>parseInt(r[6])),backgroundColor:green,borderRadius:4},
+  {label:'Con deuda',data:JUN.map(r=>r[5]),backgroundColor:red,borderRadius:4}]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:16}},scales:{x:xg,y:pctY()},plugins:{legend:leg}}});
+ new Chart($('j3'),{type:'bar',plugins:[labels(0,v=>eur(v))],data:{labels:jL,datasets:[{label:'Deuda',data:JUN.map(r=>r[4]),backgroundColor:jun,borderRadius:4}]},
+  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,layout:{padding:{right:70}},scales:{x:{min:0,max:50000,grid:{color:g},ticks:{stepSize:25000,maxRotation:0,callback:v=>eur(v)}},y:{grid:{display:false}}},plugins:{legend:{display:false}}}});
+ new Chart($('j4'),{type:'line',data:{labels:HDR,datasets:[
+  {label:'Sin deuda',data:CJ.z,borderColor:green,backgroundColor:green,borderWidth:2.5,pointRadius:0,tension:.3},
+  {label:'Con deuda',data:CJ.d,borderColor:red,backgroundColor:red,borderWidth:2.5,pointRadius:0,tension:.3}]},
+  options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},scales:{x:{grid:{display:false},ticks:{maxRotation:0,autoSkip:true,maxTicksLimit:8,font:{size:11}}},y:pctY()},plugins:{legend:leg,tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.raw} %`}}}}});
+}
+draw();
+try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}
+</script>
+</body>
+</html>
